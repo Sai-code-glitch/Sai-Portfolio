@@ -59,6 +59,34 @@ section {
   margin-top: 20px;
   color: var(--highlight);
 }
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: auto;
+}
+.hero-headshot {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 100%;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  border: 5px solid var(--accent);
+}
+.hero-tagline {
+  font-size: 1.25rem;
+  margin-top: 12px;
+  color: var(--highlight);
+  font-weight: 500;
+}
+@media (max-width: 800px) {
+  .hero-content { flex-direction: column; gap: 24px; }
+  .hero-headshot { width: 120px; height: 120px; }
+}
+
 .btn {
   background: var(--accent);
   color: white;
@@ -120,6 +148,7 @@ section {
   font-weight: bold;
   cursor: pointer;
 }
+
 
 
 /* Timeline */
