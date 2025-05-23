@@ -86,6 +86,22 @@ section {
   .hero-content { flex-direction: column; gap: 24px; }
   .hero-headshot { width: 120px; height: 120px; }
 }
+.edu-list, .exp-list {
+  list-style: none;
+  padding: 0 0 0 18px;
+}
+.edu-list li, .exp-list li {
+  margin-bottom: 18px;
+  padding-left: 0;
+  border-left: 3px solid var(--primary);
+  padding-left: 12px;
+  font-size: 1.08rem;
+}
+.edu-list span, .exp-list span {
+  color: #555;
+  font-size: 0.98rem;
+}
+
 
 .btn {
   background: var(--accent);
