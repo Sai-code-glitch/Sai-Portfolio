@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sai Yalamanchili | Advanced Portfolio</title>
+
+  <!-- Meta & SEO -->
+  <meta name="description" content="Sai Yalamanchili's official portfolio: Project Manager, Cybersecurity Intern, Civil Engineer, Data Analyst, and Developer." />
+  <meta name="author" content="Sai Yalamanchili" />
+  <meta name="keywords" content="Sai Yalamanchili, Portfolio, Project Management, Cybersecurity, Odoo, Python, Data Analytics" />
+  <meta property="og:title" content="Sai Yalamanchili | Portfolio" />
+  <meta property="og:description" content="Explore Sai's global experience in PM, Cybersecurity, Analytics & Civil Engineering." />
+  <meta property="og:image" content="assets/images/preview.jpg" />
+  <meta property="og:url" content="https://yourdomain.com" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Styles & Fonts -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="assets/icons/favicon.ico" />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <!-- Scripts -->
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script> (function() { emailjs.init("YOUR_USER_ID"); })(); </script>
+  <script defer src="scripts.js"></script>
+  <script defer src="dark-mode-toggle.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav id="navbar">
+    <ul>
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#timeline">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Language Toggle -->
+  <div class="lang-toggle" style="position:fixed; top:20px; left:20px;">
+    <select id="languageSwitcher">
+      <option value="en" selected>🌐 EN</option>
+      <option value="hi">🇮🇳 HI</option>
+      <option value="it">🇮🇹 IT</option>
+    </select>
+  </div>
+
+  <!-- Dark Mode Toggle -->
+  <div class="theme-toggle" style="position:fixed; top:20px; right:20px;">
+    <label class="switch">
+      <input type="checkbox" id="theme-switcher">
+      <span class="slider round"></span>
+    </label>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <h1 data-en="Hello, I'm Sai Jagan Yalamanchili"
+        data-hi="नमस्ते, मैं साई जगन यालामांचिली हूं"
+        data-it="Ciao, sono Sai Jagan Yalamanchili">
+        Hello, I'm Sai Jagan Yalamanchili
+    </h1>
+    <div class="typed-text"><span id="typed"></span></div>
+    <a href="assets/pdf/Sai_Resume.pdf" class="btn">📄 Download Resume</a>
+    <a href="#" class="btn" id="resume-btn">📄 View Resume</a>
+  </section>
+
+  <!-- Resume Modal -->
+  <div id="resume-modal" class="modal">
+    <div class="modal-content">
+      <iframe src="assets/pdf/Sai_Resume.pdf" width="100%" height="600px"></iframe>
+      <button onclick="document.getElementById('resume-modal').style.display='none'">Close</button>
+    </div>
+  </div>
+  <!-- 🌟 PROJECTS SECTION -->
+  <section id="projects" class="glass-panel" data-aos="fade-up">
+    <h2>Featured Projects</h2>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <img src="infographics/inventory-etl.svg" alt="Inventory Automation">
+        <h3>Inventory Automation</h3>
+        <p>Real-time tracking with Odoo + Python + SQL</p>
+        <button class="project-modal-trigger" data-modal="modal1">More Info</button>
+      </div>
+
+      <div class="project-card">
+        <img src="infographics/cybersecurity.svg" alt="Cybersecurity Testing">
+        <h3>Cybersecurity Testing</h3>
+        <p>Postman automation, platform validation</p>
+        <button class="project-modal-trigger" data-modal="modal2">More Info</button>
+      </div>
+
+      <div class="project-card">
+        <img src="infographics/climate-data.svg" alt="Climate Analytics">
+        <h3>Climate Analytics</h3>
+        <p>R, Python, QGIS for climate justice</p>
+        <button class="project-modal-trigger" data-modal="modal3">More Info</button>
+      </div>
+
+      <div class="project-card">
+        <img src="infographics/bridge-p6.svg" alt="Bridge Planning">
+        <h3>Bridge Planning</h3>
+        <p>Primavera + Power BI for Brăila Bridge</p>
+        <button class="project-modal-trigger" data-modal="modal4">More Info</button>
+      </div>
+
+      <div class="project-card">
+        <img src="infographics/dam-construction.svg" alt="Dam Spillway">
+        <h3>Dam Spillway</h3>
+        <p>AutoCAD execution, Excel cost tracking</p>
+        <button class="project-modal-trigger" data-modal="modal5">More Info</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 🔍 PROJECT MODALS -->
+  <div id="modal1" class="modal"><div class="modal-content"><h3>Inventory Automation</h3><p>Built real-time inventory tracking using Python, SQL, and Odoo ERP. Automated reorder logic, reduced shrinkage, and improved procurement cycles.</p></div></div>
+
+  <div id="modal2" class="modal"><div class="modal-content"><h3>Cybersecurity Testing</h3><p>Implemented Postman automation, API testing, device security, and vulnerability scanning for platforms like Infoblox and Microsoft Dynamics.</p></div></div>
+
+  <div id="modal3" class="modal"><div class="modal-content"><h3>Climate Data Analytics</h3><p>Analyzed climate justice impact using R, Python, Tableau, and QGIS. Created visualizations for regional policy-making at CMU.</p></div></div>
+
+  <div id="modal4" class="modal"><div class="modal-content"><h3>Bridge Planning</h3><p>Used Primavera P6 and Power BI to plan, monitor, and visualize project performance for the Brăila Bridge in Romania.</p></div></div>
+
+  <div id="modal5" class="modal"><div class="modal-content"><h3>Dam Spillway Construction</h3><p>Executed slope concreting using AutoCAD, managed procurement, and optimized cost analysis through Excel dashboards at SEW Infra.</p></div></div>
+  <!-- 🔄 AOS Animation Initialization -->
+  <script>
+    AOS.init({ once: true });
+  </script>
+
+  <!-- ✨ TYPED.JS Word Cloud -->
+  <script>
+    new Typed('#typed', {
+      strings: [
+        'Project Manager',
+        'Civil Engineer',
+        'Data Analyst',
+        'Cybersecurity Intern',
+        'Application Developer',
+        'Python & SQL Expert',
+        'Odoo ERP Specialist',
+        'Power BI & Tableau',
+        'Primavera & AutoCAD',
+        'Global Experience 🇮🇳 🇮🇹 🇵🇹 🇺🇸'
+      ],
+      typeSpeed: 50,
+      backSpeed: 25,
+      backDelay: 1000,
+      loop: true
+    });
+  </script>
+
+  <!-- 📄 Resume Modal Logic -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const resumeBtn = document.getElementById('resume-btn');
+      const resumeModal = document.getElementById('resume-modal');
+
+      if (resumeBtn && resumeModal) {
+        resumeBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          resumeModal.style.display = 'flex';
+        });
+
+        window.addEventListener('click', (e) => {
+          if (e.target === resumeModal) {
+            resumeModal.style.display = 'none';
+          }
+        });
+      }
+
+      // Project Modals
+      document.querySelectorAll('.project-modal-trigger').forEach(button => {
+        const modalId = button.getAttribute('data-modal');
+        const modal = document.getElementById(modalId);
+        if (modal) {
+          button.addEventListener('click', () => modal.style.display = 'flex');
+          modal.addEventListener('click', e => {
+            if (e.target === modal) modal.style.display = 'none';
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
