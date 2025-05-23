@@ -88,3 +88,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+// Photo Gallery Modal Logic
+document.querySelectorAll('.gallery-img').forEach(img => {
+  img.addEventListener('click', function() {
+    const modal = document.getElementById('photo-modal');
+    const modalImg = document.getElementById('modal-img');
+    const modalCaption = document.getElementById('modal-caption');
+    modal.style.display = 'flex';
+    modalImg.src = this.src;
+    modalImg.alt = this.alt;
+    modalCaption.textContent = this.getAttribute('data-caption') || '';
+  });
+});
+document.getElementById('photo-modal').addEventListener('click', function(e) {
+  if (e.target === this) this.style.display = 'none';
+});
+
