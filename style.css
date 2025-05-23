@@ -411,3 +411,24 @@ section {
   height: 60px;
   width: auto;
 }
+.glass-panel {
+  background: rgba(255,255,255,0.95);  /* Slightly stronger white */
+  color: #223;  /* Darker text */
+}
+
+.glass-panel h2, 
+.glass-panel b,
+.glass-panel .about-details {
+  color: #001f3f !important;   /* Navy blue for headings and bold text */
+}
+
+.edu-list li, .exp-list li {
+  color: #223 !important;       /* Strong readable text */
+  background: none;
+  font-weight: 600;
+}
+.edu-list span, .exp-list span {
+  color: #555 !important;      /* Make secondary info readable but less bold */
+  font-weight: 400;
+}
+
