@@ -164,6 +164,46 @@ section {
   font-weight: bold;
   cursor: pointer;
 }
+.about-flex {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.about-col {
+  flex: 1;
+  min-width: 300px;
+}
+.about-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.about-card {
+  display: flex;
+  gap: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  padding: 18px 20px;
+  align-items: center;
+}
+.about-icon {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+.about-details {
+  color: #777;
+  font-size: 0.95rem;
+  margin-top: 4px;
+  display: block;
+}
+@media (max-width: 900px) {
+  .about-flex { flex-direction: column; }
+}
+
 
 
 
