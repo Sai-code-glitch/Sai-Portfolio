@@ -72,6 +72,27 @@
     <a href="assets/pdf/Sai_Resume.pdf" class="btn">📄 Download Resume</a>
     <a href="#" class="btn" id="resume-btn">📄 View Resume</a>
   </section>
+  <!-- Photo Gallery Section -->
+<section id="gallery" class="glass-panel" data-aos="fade-up">
+  <h2>Photo Gallery</h2>
+  <div class="gallery-grid">
+    <img src="cmu-suit.jpg" alt="CMU Suit" class="gallery-img" data-caption="CMU Graduation Suit">
+    <img src="graduation.jpg" alt="Graduation" class="gallery-img" data-caption="Graduation Day">
+    <img src="dam-site.jpg" alt="Dam Site" class="gallery-img" data-caption="At the Dam Construction Site">
+    <img src="paris.jpg" alt="Paris" class="gallery-img" data-caption="In Paris">
+    <img src="snow-stairs.jpg" alt="Snow Stairs" class="gallery-img" data-caption="Snowy Day">
+  </div>
+</section>
+
+<!-- Photo Modal -->
+<div id="photo-modal" class="modal">
+  <div class="modal-content" id="modal-img-wrapper">
+    <img id="modal-img" src="" alt="" />
+    <p id="modal-caption"></p>
+    <button onclick="document.getElementById('photo-modal').style.display='none'">Close</button>
+  </div>
+</div>
+
 
   <!-- Resume Modal -->
   <div id="resume-modal" class="modal">
