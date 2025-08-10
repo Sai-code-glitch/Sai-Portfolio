@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Sound Asset Loading ---
-    const clickSound = new Audio('click.mp3');
-    const successSound = new Audio('success.mp3');
-    const errorSound = new Audio('error.mp3');
-
+    // --- Sound Asset Loading (Commented out to run without audio files) ---
+    // const clickSound = new Audio('click.mp3');
+    // const successSound = new Audio('success.mp3');
+    // const errorSound = new Audio('error.mp3');
+    
     // --- DOM Element Selection ---
     const dialogueText = document.getElementById('dialogue-text');
     const optionsContainer = document.getElementById('player-options-container');
@@ -85,9 +85,9 @@ document.addEventListener('DOMContentLoaded', () => {
             button.className = 'glow-btn';
             button.innerText = answer.text;
             button.onclick = () => {
-                clickSound.play();
+                // clickSound.play(); // Sound disabled
                 if (answer.correct) {
-                    successSound.play();
+                    // successSound.play(); // Sound disabled
                     challengeResult.innerText = challenge.success;
                     challengeResult.style.color = 'var(--success-glow)';
                     setTimeout(() => {
@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         renderDialogueNode(dialogueTree[challenge.nextStage]);
                     }, 1500);
                 } else {
-                    errorSound.play();
+                    // errorSound.play(); // Sound disabled
                     challengeResult.innerText = challenge.failure;
                     challengeResult.style.color = 'var(--secondary-glow)';
                 }
@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
             button.className = 'glow-btn';
             button.innerText = option.text;
             button.addEventListener('click', () => {
-                clickSound.play();
+                // clickSound.play(); // Sound disabled
                 if (option.action === 'challenge') handleChallenge(option.challengeId);
                 else if (option.action === 'show') showSection(option.target);
             });
