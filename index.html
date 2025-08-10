@@ -3,36 +3,40 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SYSTEM_SAI :: Global Operations</title>
+    <title>SYSTEM_SAI :: Operative Profile</title>
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="cmu-suit.jpg" />
 </head>
 <body>
-    <div id="welcome-modal" class="challenge-overlay">
-        <div class="challenge-box terminal-window">
+    <div id="welcome-modal" class="modal-overlay">
+        <div class="modal-box terminal-window">
             <h3>TRANSMISSION INCOMING...</h3>
             <p>"Time spent is always appreciated. Thanks for your first click! I hope we can turn these seconds into years of working together."</p>
-            <button id="start-mission-btn" class="glow-btn">Begin Mission</button>
+            <button id="start-mission-btn" class="glow-btn">Decrypt Profile</button>
+        </div>
+    </div>
+
+    <div id="challenge-modal" class="modal-overlay hidden">
+        <div class="modal-box terminal-window">
+            <h3 id="challenge-title"></h3>
+            <p id="challenge-question"></p>
+            <div id="challenge-answers"></div>
+            <p id="challenge-result"></p>
         </div>
     </div>
 
     <main id="game-grid">
         <section id="character-bio" class="terminal-window">
             <img src="cmu-suit.jpg" id="avatar" alt="User Avatar">
-            <h2 class="bio-name">Sai J. Yalamanchili</h2>
-            <p class="bio-title">Global Operative</p>
+            <h2 class="bio-name">Sai Jagan Yalamanchili</h2>
+            <p class="bio-callsign">(Callsign: Sai)</p>
             
             <div id="education-panel">
                 <h3 class="panel-title">// Advanced Training</h3>
-                <div class="edu-item">
-                    <h4>M.S. Business Data Analytics</h4>
-                    <p>Central Michigan University, USA</p>
-                </div>
-                <div class="edu-item">
-                    <h4>M.S. Built Environment</h4>
-                    <p>Politecnico di Milano, Italy</p>
-                </div>
+                <div class="edu-item"><h4>M.S. Business Data Analytics</h4><p>Central Michigan University, USA</p></div>
+                <div class="edu-item"><h4>M.S. Built Environment</h4><p>Politecnico di Milano, Italy</p></div>
             </div>
 
             <div class="bio-contact">
@@ -42,53 +46,48 @@
         </section>
 
         <section id="main-terminal" class="terminal-window">
-            <div id="dialogue-box">
-                <p id="dialogue-text">System Standby. Please Begin Mission...</p>
-            </div>
+            <div id="dialogue-box"><p id="dialogue-text">System Standby...</p></div>
             
             <div id="world-map-container">
                 <img src="world-map.png" alt="World Map" class="map-image">
                 <div id="usa" class="location locked" data-location="USA"></div>
                 <div id="italy" class="location locked" data-location="Italy"></div>
-                <div id="romania" class="location locked" data-location="Romania"></div>
                 <div id="india" class="location locked" data-location="India"></div>
             </div>
 
-            <div id="data-display" class="hidden">
+            <div id="intel-display" class="hidden">
                 <h2 id="intel-title" class="content-title"></h2>
                 <div id="intel-content"></div>
+            </div>
+
+            <div id="code-samples" class="terminal-window hidden">
+                 <h2 class="content-title">// DECLASSIFIED_CODE</h2>
+                 <ul>
+                     <li><a href="https://github.com/Sai-code-glitch/Sai-Portfolio" target="_blank"><i class="fab fa-github"></i> Interactive Portfolio Source</a></li>
+                     </ul>
             </div>
         </section>
     </main>
 
     <template id="usa-intel">
         <div class="intel-card">
-            <h3>OPERATION: Cloudscale Inc. (Cybersecurity Intern)</h3>
-            <p>Executed automated API testing and vulnerability scanning for enterprise platforms, contributing to enhanced system security.</p>
-            <p class="question">Key Achievement:</p>
-            <p>Developed an automated testing suite that reduced manual testing time by 40%.</p>
+            <h3>OPERATION: Cloudscale Inc.</h3><p>Executed automated API testing and vulnerability scanning.</p>
             <p class="question">Tools & Skills:</p>
-            <div class="quest-tags"><span>Postman</span><span>API Security</span><span>Python</span><span>Microsoft Dynamics</span></div>
+            <div class="quest-tags"><span>Postman</span><span>API Security</span><span>Python</span></div>
         </div>
     </template>
     <template id="italy-intel">
         <div class="intel-card">
-            <h3>OPERATION: Pegaso Ingenieria (Project Planner)</h3>
-            <p>Utilized Primavera P6 and Power BI to monitor and visualize project performance for the Brăila Bridge, ensuring on-time delivery.</p>
-            <p class="question">Key Responsibility:</p>
-            <p>Managed project timelines and resource allocation, providing critical insights to stakeholders.</p>
+            <h3>OPERATION: Pegaso Ingenieria</h3><p>Utilized **Primavera P6** and Power BI to monitor project performance for the Brăila Bridge.</p>
             <p class="question">Tools & Skills:</p>
-            <div class="quest-tags"><span>Primavera P6</span><span>Power BI</span><span>Data Analysis</span><span>Project Management</span></div>
+            <div class="quest-tags"><span>Primavera P6</span><span>Power BI</span><span>Data Analysis</span></div>
         </div>
     </template>
     <template id="india-intel">
         <div class="intel-card">
-            <h3>OPERATION: SEW Infrastructure (Analyst)</h3>
-            <p>Managed procurement and optimized cost analysis for dam spillway construction using AutoCAD and advanced Excel dashboards, resulting in a 10% cost saving.</p>
-            <p class="question">Impactful Contribution:</p>
-            <p>Developed detailed cost models that improved budget forecasting accuracy.</p>
+            <h3>OPERATION: SEW Infrastructure</h3><p>Managed procurement and optimized cost analysis for dam spillway construction.</p>
             <p class="question">Tools & Skills:</p>
-            <div class="quest-tags"><span>AutoCAD</span><span>Excel</span><span>Cost Analysis</span><span>Procurement</span></div>
+            <div class="quest-tags"><span>AutoCAD</span><span>Excel</span><span>Cost Analysis</span></div>
         </div>
     </template>
     
