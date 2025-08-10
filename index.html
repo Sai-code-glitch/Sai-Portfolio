@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SYSTEM_SAI :: Access Profile</title>
-
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="cmu-suit.jpg" />
@@ -12,7 +11,6 @@
 <body>
     <main id="game-container" class="terminal-window">
         <h1 class="main-title">// RECRUITER_QUEST</h1>
-
         <section id="dialogue-screen">
             <div id="npc-area">
                 <img src="cmu-suit.jpg" id="avatar" alt="User Avatar">
@@ -20,62 +18,41 @@
                     <p id="dialogue-text">Initializing system...</p>
                 </div>
             </div>
-            <div id="player-options-container">
-                </div>
+            <div id="player-options-container"></div>
         </section>
 
         <div id="unlocked-content-area">
-            
-            <section id="skills-content" class="hidden-section terminal-window content-window">
-                <h2 class="content-title">// SKILL_MATRIX</h2>
-                <ul class="skill-tree">
-                    <li><span class="skill-node core">Data Analytics</span>
-                        <ul>
-                            <li><span class="skill-node">Python (Pandas, NumPy)</span></li>
-                            <li><span class="skill-node">R Programming</span></li>
-                            <li><span class="skill-node">Power BI & Tableau</span></li>
-                        </ul>
-                    </li>
-                    <li><span class="skill-node core">Project Management</span>
-                        <ul>
-                            <li><span class="skill-node">Primavera P6</span></li>
-                            <li><span class="skill-node">Agile Methodologies</span></li>
-                        </ul>
-                    </li>
-                    <li><span class="skill-node core">Development & IT</span>
-                        <ul>
-                            <li><span class="skill-node">Odoo ERP</span></li>
-                            <li><span class="skill-node">SQL Databases</span></li>
-                            <li><span class="skill-node">API Testing (Postman)</span></li>
-                        </ul>
-                    </li>
-                </ul>
-            </section>
-
             <section id="projects-content" class="hidden-section terminal-window content-window">
-                <h2 class="content-title">// MISSION_LOGS</h2>
+                <h2 class="content-title">// MISSION_LOGS [UNLOCKED]</h2>
                 <div class="quest-grid">
                     <div class="quest-card">
                         <h3>Automated Inventory</h3>
-                        <p>Objective: Deployed a real-time inventory tracking system using Python and Odoo ERP, reducing inventory shrinkage by 15%.</p>
+                        <p>Objective: Deployed a real-time inventory tracking system using Python and **Odoo ERP**, reducing inventory shrinkage by 15%.</p>
                         <div class="quest-tags"><span>Python</span><span>Odoo</span><span>SQL</span></div>
                     </div>
                     <div class="quest-card">
-                        <h3>Cybersecurity Trials</h3>
-                        <p>Objective: Executed automated API testing and vulnerability scanning for enterprise platforms including Infoblox and Microsoft Dynamics.</p>
-                        <div class="quest-tags"><span>Postman</span><span>API Security</span></div>
-                    </div>
-                    <div class="quest-card">
                         <h3>Climate Data Saga</h3>
-                        <p>Objective: Analyzed and visualized climate justice data using R and Tableau to inform regional policy-making at CMU.</p>
+                        <p>Objective: Analyzed and visualized climate justice data using R and **Tableau** to inform regional policy-making at CMU.</p>
                         <div class="quest-tags"><span>R</span><span>Tableau</span><span>QGIS</span></div>
                     </div>
                 </div>
             </section>
+            
+            <section id="skills-content" class="hidden-section terminal-window content-window">
+                <h2 class="content-title">// SKILL_MATRIX [UNLOCKED]</h2>
+                <ul class="skill-tree">
+                    <li><span class="skill-node core">Data Analytics</span>
+                        <ul><li><span>Python</span></li><li><span>R</span></li><li><span>Tableau</span></li></ul>
+                    </li>
+                    <li><span class="skill-node core">Project Management</span>
+                        <ul><li><span>**Primavera P6**</span></li><li><span>Agile Methods</span></li></ul>
+                    </li>
+                </ul>
+            </section>
 
             <section id="contact-content" class="hidden-section terminal-window content-window">
-                <h2 class="content-title">// SECURE_CHANNEL</h2>
-                <p>System is open to new directives. Connect to establish a link.</p>
+                <h2 class="content-title">// TREASURE_UNLOCKED</h2>
+                <p>Congratulations, you have acquired all data fragments. The complete profile is assembled.</p>
                 <div class="action-buttons">
                     <a href="mailto:sai.yalamanchili@example.com" class="glow-btn">Initiate Contact</a>
                     <a href="Sai_Resume.pdf" target="_blank" class="glow-btn">Download Full Dossier</a>
@@ -86,14 +63,13 @@
 
         <div id="challenge-modal" class="challenge-overlay hidden">
             <div class="challenge-box terminal-window">
-              <h3>ACCESS DENIED: CLEARANCE REQUIRED</h3>
-              <p id="challenge-question">To access the Skill Matrix, please answer the following:</p>
+              <h3 id="challenge-title">ACCESS DENIED: CLEARANCE REQUIRED</h3>
+              <p id="challenge-question"></p>
               <div id="challenge-answers"></div>
               <p id="challenge-result"></p>
             </div>
         </div>
     </main>
-
     <script src="game-logic.js"></script>
 </body>
 </html>
