@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Event Listener for all Hotspots ---
     locationHotspots.forEach(hotspot => {
         hotspot.addEventListener('click', () => {
-            // Get data from the clicked hotspot
             const locationId = hotspot.id;
             const locationName = hotspot.getAttribute('data-location');
             const intelTemplate = document.getElementById(`${locationId}-intel`);
@@ -19,20 +18,25 @@ document.addEventListener('DOMContentLoaded', () => {
             statusText.textContent = "Analyzing Data...";
             locationText.textContent = locationName;
 
-            // De-activate all other hotspots
+            // De-activate all other hotspots and activate the current one
             locationHotspots.forEach(p => p.classList.remove('active'));
-            // Activate the currently clicked hotspot
             hotspot.classList.add('active');
             
-            // Check if there is intel content to display
+            // **-- THE FIX IS HERE --**
             if (intelTemplate) {
                 // Update the title of the data display
                 intelTitle.textContent = `// INTEL_FEED: ${locationName.toUpperCase()}`;
                 
-                // Set the content from the template
-                intelContent.innerHTML = intelTemplate.innerHTML;
+                // 1. Properly clone the content from the <template>
+                const contentToDisplay = intelTemplate.content.cloneNode(true);
                 
-                // Show the data display panel
+                // 2. Clear any previous content
+                intelContent.innerHTML = ''; 
+                
+                // 3. Append the new, complete content
+                intelContent.appendChild(contentToDisplay);
+                
+                // 4. Show the data display panel
                 dataDisplay.classList.remove('hidden');
             }
 
