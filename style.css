@@ -109,3 +109,4 @@ body::after {
     90%  { clip: rect(3px, 9999px, 53px, 0); }
     100% { clip: rect(19px, 9999px, 32px, 0); }
 }
+
