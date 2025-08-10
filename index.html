@@ -12,124 +12,94 @@
 </head>
 
 <body>
+  <main id="game-container" class="nes-container is-dark with-title">
+    <h1 class="title">Recruiter Quest</h1>
 
-  <header class="title-screen">
-    <h1>Recruiter Quest</h1>
-    <p>Your mission: Discover a new team member.</p>
-  </header>
-
-  <main class="main-content">
-
-    <section id="hero" class="nes-container with-title is-centered">
-      <h2 class="title">Character Profile</h2>
-      <div class="character-sheet">
-        <div class="avatar-container">
-          <img src="cmu-suit.jpg" alt="Sai Character Avatar" class="avatar nes-avatar is-large">
-          <p class="name-plate">Sai J. Yalamanchili</p>
-        </div>
-        <div class="stats-container">
-          <p>Class: <span id="typed-class"></span></p>
-          <div class="stat-bar">
-            <label>Problem Solving:</label>
-            <progress class="nes-progress is-success" value="90" max="100"></progress>
-          </div>
-          <div class="stat-bar">
-            <label>Adaptability:</label>
-            <progress class="nes-progress is-warning" value="95" max="100"></progress>
-          </div>
-          <div class="stat-bar">
-            <label>Experience Points:</label>
-            <progress class="nes-progress is-error" value="85" max="100"></progress>
-          </div>
+    <section id="dialogue-screen">
+      <div id="npc-area">
+        <img src="cmu-suit.jpg" class="nes-avatar is-large is-rounded">
+        <div class="nes-balloon from-left" id="dialogue-box">
+          <p id="dialogue-text">Loading...</p>
         </div>
       </div>
+      <div id="player-options-container">
+        </div>
     </section>
 
-    <section id="skills" class="nes-container with-title">
+    <div id="unlocked-content-area">
+      
+      <section id="skills-content" class="hidden-section nes-container with-title">
         <h2 class="title">Skill Tree</h2>
-        <div class="skill-tree-container">
-            <ul class="skill-tree">
-                <li><span class="skill-node core">Data Analytics</span>
-                    <ul>
-                        <li><span class="skill-node">Python</span></li>
-                        <li><span class="skill-node">R</span></li>
-                        <li><span class="skill-node">Power BI / Tableau</span></li>
-                        <li><span class="skill-node">SQL</span></li>
-                    </ul>
-                </li>
-                <li><span class="skill-node core">Project Management</span>
-                    <ul>
-                        <li><span class="skill-node">Primavera P6</span></li>
-                        <li><span class="skill-node">Agile Methods</span></li>
-                    </ul>
-                </li>
-                <li><span class="skill-node core">Development</span>
-                    <ul>
-                        <li><span class="skill-node">Odoo ERP</span></li>
-                        <li><span class="skill-node">API Testing</span></li>
-                        <li><span class="skill-node">HTML/CSS/JS</span></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </section>
+        <p>Years of training have unlocked these abilities.</p>
+        <ul class="skill-tree">
+            <li><span class="skill-node core">Data Analytics</span>
+                <ul>
+                    <li><span class="skill-node">Python</span></li>
+                    <li><span class="skill-node">R</span></li>
+                    <li><span class="skill-node">Power BI / Tableau</span></li>
+                </ul>
+            </li>
+            <li><span class="skill-node core">Project Management</span>
+                <ul>
+                    <li><span class="skill-node">Primavera P6</span></li>
+                    <li><span class="skill-node">Agile Methods</span></li>
+                </ul>
+            </li>
+            <li><span class="skill-node core">Development & IT</span>
+                <ul>
+                    <li><span class="skill-node">Odoo ERP</span></li>
+                    <li><span class="skill-node">SQL</span></li>
+                    <li><span class="skill-node">API Testing (Postman)</span></li>
+                </ul>
+            </li>
+        </ul>
+      </section>
 
-    <section id="projects" class="nes-container with-title">
-      <h2 class="title">Quest Log</h2>
-      <div class="quest-grid">
-        <div class="nes-container with-title is-dark quest-card">
-          <p class="title">Automated Inventory</p>
-          <p><strong>Objective:</strong> Forge a system to track inventory and vanquish the beast of shrinkage.</p>
-          <div class="quest-rewards">
-             <span class="nes-badge"><span class="is-success">Python</span></span>
-             <span class="nes-badge"><span class="is-primary">Odoo</span></span>
-             <span class="nes-badge"><span class="is-error">SQL</span></span>
-          </div>
-          <button type="button" class="nes-btn is-primary modal-trigger" data-modal="modal1">Review Report</button>
-        </div>
-        <div class="nes-container with-title is-dark quest-card">
-            <p class="title">Cybersecurity Trials</p>
-            <p><strong>Objective:</strong> Secure the digital realm through automated platform validation.</p>
-            <div class="quest-rewards">
-               <span class="nes-badge"><span class="is-success">Postman</span></span>
-               <span class="nes-badge"><span class="is-primary">API</span></span>
+      <section id="projects-content" class="hidden-section nes-container with-title">
+        <h2 class="title">Quest Log</h2>
+        <p>Reports from my most challenging missions.</p>
+        <div class="quest-grid">
+            <div class="quest-card nes-container is-dark">
+                <h3>Automated Inventory</h3>
+                <p>Objective: Forge a system to track inventory, reducing shrinkage by 15%.</p>
+                <div class="quest-rewards">
+                    <span class="nes-badge"><span class="is-success">Python</span></span>
+                    <span class="nes-badge"><span class="is-primary">Odoo</span></span>
+                    <span class="nes-badge"><span class="is-error">SQL</span></span>
+                </div>
             </div>
-            <button type="button" class="nes-btn is-primary modal-trigger" data-modal="modal2">Review Report</button>
+            <div class="quest-card nes-container is-dark">
+                <h3>Cybersecurity Trials</h3>
+                <p>Objective: Secure the digital realm via automated platform validation and API testing.</p>
+                <div class="quest-rewards">
+                    <span class="nes-badge"><span class="is-success">Postman</span></span>
+                    <span class="nes-badge"><span class="is-primary">API</span></span>
+                </div>
+            </div>
+            <div class="quest-card nes-container is-dark">
+                <h3>Climate Data Saga</h3>
+                <p>Objective: Visualize climate justice data for regional policy-making at CMU.</p>
+                <div class="quest-rewards">
+                    <span class="nes-badge"><span class="is-success">R</span></span>
+                    <span class="nes-badge"><span class="is-warning">Tableau</span></span>
+                </div>
+            </div>
         </div>
-        </div>
-    </section>
+      </section>
 
-    <section id="contact" class="nes-container with-title is-centered">
-        <h2 class="title">Quest Complete!</h2>
-        <p>You have reviewed the adventurer's profile. Will you invite them to join your guild?</p>
+      <section id="contact-content" class="hidden-section nes-container with-title is-centered">
+        <h2 class="title">Open a Channel</h2>
+        <p>My communicator is open for new missions. Shall we join forces?</p>
         <div class="action-buttons">
-            <a href="mailto:your.email@example.com" class="nes-btn is-success">Send a Scroll (Email)</a>
+            <a href="mailto:sai.yalamanchili@example.com" class="nes-btn is-success">Send a Scroll (Email)</a>
             <a href="Sai_Resume.pdf" target="_blank" class="nes-btn is-primary">View Full Stats (PDF)</a>
             <a href="https://github.com/Sai-code-glitch" target="_blank" class="nes-btn">Inspect Forge (GitHub)</a>
         </div>
-    </section>
+      </section>
+
+    </div>
   </main>
 
-  <dialog class="nes-dialog" id="modal1">
-    <form method="dialog">
-      <p class="title">Report: Automated Inventory</p>
-      <p>Built real-time inventory tracking using Python, SQL, and Odoo ERP. Automated reorder logic, reduced shrinkage by 15%, and improved procurement cycles.</p>
-      <menu class="dialog-menu">
-        <button class="nes-btn is-primary">Confirm</button>
-      </menu>
-    </form>
-  </dialog>
-  <dialog class="nes-dialog" id="modal2">
-    <form method="dialog">
-        <p class="title">Report: Cybersecurity Trials</p>
-        <p>Implemented Postman automation, API testing, device security, and vulnerability scanning for platforms like Infoblox and Microsoft Dynamics.</p>
-        <menu class="dialog-menu">
-            <button class="nes-btn is-primary">Confirm</button>
-        </menu>
-    </form>
-  </dialog>
-
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   <script src="game-logic.js"></script>
 </body>
 </html>
