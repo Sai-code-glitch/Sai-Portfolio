@@ -1,105 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Recruiter Quest | Find Sai Yalamanchili</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SYSTEM_SAI :: Access Profile</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-  <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="cmu-suit.jpg" />
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="cmu-suit.jpg" />
 </head>
-
 <body>
-  <main id="game-container" class="nes-container is-dark with-title">
-    <h1 class="title">Recruiter Quest</h1>
-
-    <section id="dialogue-screen">
-      <div id="npc-area">
-        <img src="cmu-suit.jpg" class="nes-avatar is-large is-rounded">
-        <div class="nes-balloon from-left" id="dialogue-box">
-          <p id="dialogue-text">Loading...</p>
-        </div>
-      </div>
-      <div id="player-options-container">
-        </div>
-    </section>
-
-    <div id="unlocked-content-area">
-      
-      <section id="skills-content" class="hidden-section nes-container with-title">
-        <h2 class="title">Skill Tree</h2>
-        <p>Years of training have unlocked these abilities.</p>
-        <ul class="skill-tree">
-            <li><span class="skill-node core">Data Analytics</span>
-                <ul>
-                    <li><span class="skill-node">Python</span></li>
-                    <li><span class="skill-node">R</span></li>
-                    <li><span class="skill-node">Power BI / Tableau</span></li>
-                </ul>
-            </li>
-            <li><span class="skill-node core">Project Management</span>
-                <ul>
-                    <li><span class="skill-node">Primavera P6</span></li>
-                    <li><span class="skill-node">Agile Methods</span></li>
-                </ul>
-            </li>
-            <li><span class="skill-node core">Development & IT</span>
-                <ul>
-                    <li><span class="skill-node">Odoo ERP</span></li>
-                    <li><span class="skill-node">SQL</span></li>
-                    <li><span class="skill-node">API Testing (Postman)</span></li>
-                </ul>
-            </li>
-        </ul>
-      </section>
-
-      <section id="projects-content" class="hidden-section nes-container with-title">
-        <h2 class="title">Quest Log</h2>
-        <p>Reports from my most challenging missions.</p>
-        <div class="quest-grid">
-            <div class="quest-card nes-container is-dark">
-                <h3>Automated Inventory</h3>
-                <p>Objective: Forge a system to track inventory, reducing shrinkage by 15%.</p>
-                <div class="quest-rewards">
-                    <span class="nes-badge"><span class="is-success">Python</span></span>
-                    <span class="nes-badge"><span class="is-primary">Odoo</span></span>
-                    <span class="nes-badge"><span class="is-error">SQL</span></span>
+    <main id="game-container" class="terminal-window">
+        <section id="dialogue-screen">
+            <div id="npc-area">
+                <img src="cmu-suit.jpg" id="avatar" alt="User Avatar">
+                <div class="dialogue-box">
+                    <p id="dialogue-text">Initializing...</p>
                 </div>
             </div>
-            <div class="quest-card nes-container is-dark">
-                <h3>Cybersecurity Trials</h3>
-                <p>Objective: Secure the digital realm via automated platform validation and API testing.</p>
-                <div class="quest-rewards">
-                    <span class="nes-badge"><span class="is-success">Postman</span></span>
-                    <span class="nes-badge"><span class="is-primary">API</span></span>
+            <div id="player-options-container">
                 </div>
-            </div>
-            <div class="quest-card nes-container is-dark">
-                <h3>Climate Data Saga</h3>
-                <p>Objective: Visualize climate justice data for regional policy-making at CMU.</p>
-                <div class="quest-rewards">
-                    <span class="nes-badge"><span class="is-success">R</span></span>
-                    <span class="nes-badge"><span class="is-warning">Tableau</span></span>
+        </section>
+
+        <div id="unlocked-content-area">
+            
+            <section id="skills-content" class="hidden-section terminal-window content-window">
+                <h2 class="content-title">// SKILL_MATRIX</h2>
+                <ul class="skill-tree">
+                    <li><span class="skill-node core">Data Analytics</span>
+                        <ul>
+                            <li><span class="skill-node">Python (Pandas, NumPy)</span></li>
+                            <li><span class="skill-node">R Programming</span></li>
+                            <li><span class="skill-node">Power BI & Tableau</span></li>
+                        </ul>
+                    </li>
+                    <li><span class="skill-node core">Project Management</span>
+                        <ul>
+                            <li><span class="skill-node">Primavera P6</span></li>
+                            <li><span class="skill-node">Agile Methodologies</span></li>
+                        </ul>
+                    </li>
+                    <li><span class="skill-node core">Development & IT</span>
+                        <ul>
+                            <li><span class="skill-node">Odoo ERP</span></li>
+                            <li><span class="skill-node">SQL Databases</span></li>
+                            <li><span class="skill-node">API Testing (Postman)</span></li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+
+            <section id="projects-content" class="hidden-section terminal-window content-window">
+                <h2 class="content-title">// MISSION_LOGS</h2>
+                <div class="quest-grid">
+                    <div class="quest-card">
+                        <h3>Automated Inventory</h3>
+                        <p>Objective: Deployed a real-time inventory tracking system using Python and Odoo ERP, reducing inventory shrinkage by 15%.</p>
+                        <div class="quest-tags"><span>Python</span><span>Odoo</span><span>SQL</span></div>
+                    </div>
+                    <div class="quest-card">
+                        <h3>Cybersecurity Trials</h3>
+                        <p>Objective: Executed automated API testing and vulnerability scanning for enterprise platforms including Infoblox and Microsoft Dynamics.</p>
+                        <div class="quest-tags"><span>Postman</span><span>API Security</span></div>
+                    </div>
+                    <div class="quest-card">
+                        <h3>Climate Data Saga</h3>
+                        <p>Objective: Analyzed and visualized climate justice data using R and Tableau to inform regional policy-making at CMU.</p>
+                        <div class="quest-tags"><span>R</span><span>Tableau</span><span>QGIS</span></div>
+                    </div>
                 </div>
+            </section>
+
+            <section id="contact-content" class="hidden-section terminal-window content-window">
+                <h2 class="content-title">// SECURE_CHANNEL</h2>
+                <p>System is open to new directives. Connect to establish a link.</p>
+                <div class="action-buttons">
+                    <a href="mailto:sai.yalamanchili@example.com" class="glow-btn">Initiate Contact</a>
+                    <a href="Sai_Resume.pdf" target="_blank" class="glow-btn">Download Full Dossier</a>
+                    <a href="https://github.com/Sai-code-glitch" target="_blank" class="glow-btn">Access Source Code</a>
+                </div>
+            </section>
+        </div>
+
+        <div id="challenge-modal" class="challenge-overlay hidden">
+            <div class="challenge-box terminal-window">
+              <h3>ACCESS DENIED: CLEARANCE REQUIRED</h3>
+              <p id="challenge-question">To access the Skill Matrix, please answer the following:</p>
+              <div id="challenge-answers">
+                </div>
+              <p id="challenge-result"></p>
             </div>
         </div>
-      </section>
+    </main>
 
-      <section id="contact-content" class="hidden-section nes-container with-title is-centered">
-        <h2 class="title">Open a Channel</h2>
-        <p>My communicator is open for new missions. Shall we join forces?</p>
-        <div class="action-buttons">
-            <a href="mailto:sai.yalamanchili@example.com" class="nes-btn is-success">Send a Scroll (Email)</a>
-            <a href="Sai_Resume.pdf" target="_blank" class="nes-btn is-primary">View Full Stats (PDF)</a>
-            <a href="https://github.com/Sai-code-glitch" target="_blank" class="nes-btn">Inspect Forge (GitHub)</a>
-        </div>
-      </section>
-
-    </div>
-  </main>
-
-  <script src="game-logic.js"></script>
+    <script src="game-logic.js"></script>
 </body>
 </html>
