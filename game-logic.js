@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let gameState = { stage: 'start' };
     const dialogue = {
         start: "Handler, your mission is to verify Operative Yalamanchili's credentials. Begin by decrypting the US intel.",
-        unlockEurope: "US Intel decrypted. Data fragment points to Europe. Use the key from the US report to proceed.",
+        unlockEurope: "US Intel decrypted. Data fragment points to Europe. Use the key from the report to proceed.",
         unlockIndia: "European Intel decrypted. Final fragment points to India. Decrypt the final node.",
         complete: "All field intel acquired. Operative profile is complete. Accessing code samples..."
     };
@@ -38,7 +38,34 @@ document.addEventListener('DOMContentLoaded', () => {
             codeSamples.classList.add('hidden');
         }
     };
+    
+    const renderGameState = () => {
+        typeWriter(dialogueText, dialogue[gameState.stage]);
+        
+        const missionOrder = {
+            'start': 'usa',
+            'unlockEurope': 'italy',
+            'unlockIndia': 'india'
+        };
 
+        const currentMissionId = missionOrder[gameState.stage];
+
+        locations.forEach(loc => {
+            loc.classList.remove('active-mission');
+            if (loc.id === currentMissionId) {
+                loc.classList.add('active-mission');
+            }
+        });
+        
+        if (gameState.stage === 'unlockEurope') document.getElementById('usa').classList.replace('locked', 'completed');
+        if (gameState.stage === 'unlockIndia') document.getElementById('italy').classList.replace('locked', 'completed');
+        if (gameState.stage === 'complete') {
+            document.getElementById('india').classList.replace('active-mission', 'completed');
+            intelDisplay.classList.add('hidden');
+            codeSamples.classList.remove('hidden');
+        }
+    };
+    
     const handleAnswer = (isCorrect, challenge, locationId) => {
         const resultEl = document.getElementById('challenge-result');
         if (isCorrect) {
@@ -74,28 +101,6 @@ document.addEventListener('DOMContentLoaded', () => {
         challengeModal.classList.remove('hidden');
     };
 
-    const renderGameState = () => {
-        typeWriter(dialogueText, dialogue[gameState.stage]);
-        
-        const missionOrder = ['usa', 'italy', 'india'];
-        const currentMissionId = missionOrder.find(id => dialogue[gameState.stage].includes(challenges[id]?.success.split('...')[1] || dialogue.start.includes('US intel')));
-
-        locations.forEach(loc => {
-            loc.classList.remove('active-mission');
-            if (loc.id === currentMissionId) {
-                loc.classList.add('active-mission');
-            }
-        });
-
-        if (gameState.stage === 'unlockEurope') document.getElementById('usa').classList.replace('locked', 'completed');
-        if (gameState.stage === 'unlockIndia') document.getElementById('italy').classList.replace('locked', 'completed');
-        if (gameState.stage === 'complete') {
-            document.getElementById('india').classList.replace('locked', 'completed');
-            intelDisplay.classList.add('hidden');
-            codeSamples.classList.remove('hidden');
-        }
-    };
-    
     // --- Event Listeners ---
     locations.forEach(loc => {
         loc.addEventListener('click', () => {
