@@ -3,57 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sai Yalamanchili | Advanced Portfolio</title>
+  <title>Sai Yalamanchili | Portfolio</title>
 
-  <!-- Meta & SEO -->
   <meta name="description" content="Sai Yalamanchili's official portfolio: Project Manager, Cybersecurity Intern, Civil Engineer, Data Analyst, and Developer." />
   <meta name="author" content="Sai Yalamanchili" />
   <meta name="keywords" content="Sai Yalamanchili, Portfolio, Project Management, Cybersecurity, Odoo, Python, Data Analytics" />
-  <meta property="og:title" content="Sai Yalamanchili | Portfolio" />
-  <meta property="og:description" content="Explore Sai's global experience in PM, Cybersecurity, Analytics & Civil Engineering." />
-  <meta property="og:image" content="assets/images/preview.jpg" />
-  <meta property="og:url" content="https://yourdomain.com" />
-  <meta name="twitter:card" content="summary_large_image" />
-
-  <!-- Styles & Fonts -->
+  
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="assets/icons/favicon.ico" />
+  <link rel="icon" href="cmu-suit.jpg" />
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-
-  <!-- Scripts -->
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-  <script> (function() { emailjs.init("YOUR_USER_ID"); })(); </script>
-  <script defer src="scripts.js"></script>
-  <script defer src="dark-mode-toggle.js"></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 </head>
 
 <body>
 
-  <!-- Navbar -->
   <nav id="navbar">
     <ul>
       <li><a href="#hero">Home</a></li>
-      <li><a href="#timeline">Experience</a></li>
-      <li><a href="#skills">Skills</a></li>
+      <li><a href="#about">Experience</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#gallery">Gallery</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
-  <!-- Language Toggle -->
-  <div class="lang-toggle" style="position:fixed; top:20px; left:20px;">
-    <select id="languageSwitcher">
-      <option value="en" selected>🌐 EN</option>
-      <option value="hi">🇮🇳 HI</option>
-      <option value="it">🇮🇹 IT</option>
-    </select>
-  </div>
-
-  <!-- Dark Mode Toggle -->
   <div class="theme-toggle" style="position:fixed; top:20px; right:20px;">
     <label class="switch">
       <input type="checkbox" id="theme-switcher">
@@ -61,233 +35,216 @@
     </label>
   </div>
 
-  <!-- Hero Section with Headshot -->
-<section class="hero" id="hero">
-  <div class="hero-content">
-    <img src="cmu-suit.jpg" alt="Sai Jagan Yalamanchili Headshot" class="hero-headshot">
-    <div>
-      <h1>Hello, I'm Sai Jagan Yalamanchili</h1>
-      <div class="typed-text"><span id="typed"></span></div>
-      <p class="hero-tagline">Project Manager | Data Analyst | Civil Engineer</p>
-      <a href="Sai_Resume.pdf" class="btn" target="_blank">📄 Download Resume</a>
-      <a href="#" class="btn" id="resume-btn">📄 View Resume</a>
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <img src="cmu-suit.jpg" alt="Sai Jagan Yalamanchili Headshot" class="hero-headshot">
+      <div>
+        <h1>Hello, I'm Sai Jagan Yalamanchili</h1>
+        <div class="typed-text"><span id="typed"></span></div>
+        
+        <a href="Sai_Resume.pdf" class="btn" download="Sai_Yalamanchili_Resume.pdf">📄 Download Resume</a>
+        <a href="Sai_Resume.pdf" class="btn" target="_blank">📄 View Resume</a>
+      </div>
     </div>
-  </div>
-</section>
-  <!-- Education & Experience -->
-<!-- Education & Experience Section -->
-<section id="about" class="glass-panel" data-aos="fade-up">
-  <div class="about-flex">
-    <!-- Education -->
-    <div class="about-col">
-      <h2><i class="fa fa-graduation-cap"></i> Education</h2>
-      <div class="about-cards">
-        <div class="about-card">
-          <img src="infographics/education.svg" alt="" class="about-icon">
-          <div>
-            <b>Central Michigan University</b><br>
-            MS, Business Data Analytics<br>
-            <span class="about-details">2022-2024 | GPA: 3.47/4.0 | Michigan, USA</span>
+  </section>
+
+  <section id="about" class="glass-panel" data-aos="fade-up">
+    <div class="about-flex">
+      <div class="about-col">
+        <h2><i class="fa fa-graduation-cap"></i> Education</h2>
+        <div class="about-cards">
+          <div class="about-card">
+            <div>
+              <b>Central Michigan University</b><br>
+              MS, Business Data Analytics<br>
+              <span class="about-details">2022-2024 | Michigan, USA</span>
+            </div>
+          </div>
+          <div class="about-card">
+            <div>
+              <b>Politecnico di Milano</b><br>
+              MS, Built Environment<br>
+              <span class="about-details">2017-2019 | Milan, Italy</span>
+            </div>
           </div>
         </div>
-        <div class="about-card">
-          <img src="infographics/education.svg" alt="" class="about-icon">
-          <div>
-            <b>Politecnico di Milano</b><br>
-            MS, Built Environment<br>
-            <span class="about-details">2017-2019 | GPA: 3.65/4.0 | Milan, Italy</span>
+      </div>
+      <div class="about-col">
+        <h2><i class="fa fa-briefcase"></i> Experience</h2>
+        <div class="about-cards">
+          <div class="about-card">
+            <div>
+              <b>Graduate Assistant, CMU</b><br>
+              Data analysis, climate justice research, and digital projects.<br>
+              <span class="about-details">2022-2024 | Michigan, USA</span>
+            </div>
           </div>
-        </div>
-        <div class="about-card">
-          <img src="infographics/education.svg" alt="" class="about-icon">
-          <div>
-            <b>RVR&JC College of Engineering</b><br>
-            BSc, Civil Engineering<br>
-            <span class="about-details">2011-2015 | India</span>
+          <div class="about-card">
+            <div>
+              <b>Cybersecurity Intern, Cloudscale</b><br>
+              Test automation, security, and device management.<br>
+              <span class="about-details">2024 | Michigan, USA</span>
+            </div>
+          </div>
+          <div class="about-card">
+            <div>
+              <b>Project Planner, Pegaso Ingenieria</b><br>
+              Bridge planning with Primavera P6 and Power BI.<br>
+              <span class="about-details">2020-2021 | Romania/Italy</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <!-- Experience -->
-    <div class="about-col">
-      <h2><i class="fa fa-briefcase"></i> Experience</h2>
-      <div class="about-cards">
-        <div class="about-card">
-          <img src="infographics/experience.svg" alt="" class="about-icon">
-          <div>
-            <b>Graduate Assistant, CMU</b><br>
-            Data analysis, climate justice research, and digital projects.<br>
-            <span class="about-details">2022-2024 | Michigan, USA</span>
-          </div>
-        </div>
-        <div class="about-card">
-          <img src="infographics/experience.svg" alt="" class="about-icon">
-          <div>
-            <b>Cybersecurity Intern, Cloudscale</b><br>
-            Test automation, security, and device management.<br>
-            <span class="about-details">2024 | Michigan, USA</span>
-          </div>
-        </div>
-        <div class="about-card">
-          <img src="infographics/experience.svg" alt="" class="about-icon">
-          <div>
-            <b>Project Planner, Pegaso Ingenieria</b><br>
-            Bridge planning, Primavera P6, and data analysis.<br>
-            <span class="about-details">2020-2021 | Romania/Italy</span>
-          </div>
-        </div>
-        <!-- Add more as needed -->
-      </div>
-    </div>
-  </div>
-</section>
-
-  <!-- Resume Modal -->
-<div id="resume-modal" class="modal">
-  <div class="modal-content" style="max-width:800px; min-height:500px;">
-    <iframe src="Sai_Resume.pdf" width="100%" height="500px" style="border:none;"></iframe>
-    <button onclick="document.getElementById('resume-modal').style.display='none'" class="btn" style="margin: 18px 0;">Close</button>
-  </div>
-</div>
-
-
-  <!-- Photo Gallery Section -->
-<section id="gallery" class="glass-panel" data-aos="fade-up">
-  <h2>Photo Gallery</h2>
-  <div class="gallery-grid">
-    <img src="cmu-suit.jpg" alt="CMU Suit" class="gallery-img" data-caption="CMU Graduation Suit">
-    <img src="graduation.jpg" alt="Graduation" class="gallery-img" data-caption="Graduation Day">
-    <img src="dam-site.jpg" alt="Dam Site" class="gallery-img" data-caption="At the Dam Construction Site">
-    <img src="paris.jpg" alt="Paris" class="gallery-img" data-caption="In Paris">
-    <img src="snow-stairs.jpg" alt="Snow Stairs" class="gallery-img" data-caption="Snowy Day">
-  </div>
-</section>
-
-<!-- Photo Modal -->
-<div id="photo-modal" class="modal">
-  <div class="modal-content" id="modal-img-wrapper">
-    <img id="modal-img" src="" alt="" />
-    <p id="modal-caption"></p>
-    <button onclick="document.getElementById('photo-modal').style.display='none'">Close</button>
-  </div>
-</div>
-
-
-  <!-- Resume Modal -->
-  <div id="resume-modal" class="modal">
-    <div class="modal-content">
-      <iframe src="assets/pdf/Sai_Resume.pdf" width="100%" height="600px"></iframe>
-      <button onclick="document.getElementById('resume-modal').style.display='none'">Close</button>
-    </div>
-  </div>
-  <!-- 🌟 PROJECTS SECTION -->
+  </section>
+  
   <section id="projects" class="glass-panel" data-aos="fade-up">
     <h2>Featured Projects</h2>
     <div class="projects-grid">
 
       <div class="project-card">
-        <img src="infographics/inventory-etl.svg" alt="Inventory Automation">
+        <img src="inventory-automation.png" alt="Inventory Automation">
         <h3>Inventory Automation</h3>
-        <p>Real-time tracking with Odoo + Python + SQL</p>
-        <button class="project-modal-trigger" data-modal="modal1">More Info</button>
+        <p>Real-time tracking with Odoo, Python, and SQL.</p>
+        <div class="project-tags">
+          <span>Python</span><span>Odoo ERP</span><span>SQL</span>
+        </div>
+        <button class="project-modal-trigger" data-modal="modal1">View Details</button>
       </div>
 
       <div class="project-card">
-        <img src="infographics/cybersecurity.svg" alt="Cybersecurity Testing">
+        <img src="cybersecurity.png" alt="Cybersecurity Testing">
         <h3>Cybersecurity Testing</h3>
-        <p>Postman automation, platform validation</p>
-        <button class="project-modal-trigger" data-modal="modal2">More Info</button>
+        <p>Postman automation and platform validation.</p>
+        <div class="project-tags">
+          <span>Postman</span><span>API Testing</span><span>Infoblox</span>
+        </div>
+        <button class="project-modal-trigger" data-modal="modal2">View Details</button>
       </div>
 
       <div class="project-card">
-        <img src="infographics/climate-data.svg" alt="Climate Analytics">
-        <h3>Climate Analytics</h3>
-        <p>R, Python, QGIS for climate justice</p>
-        <button class="project-modal-trigger" data-modal="modal3">More Info</button>
+        <img src="climate-analytics.png" alt="Climate Analytics">
+        <h3>Climate Data Analytics</h3>
+        <p>R, Python, and QGIS for climate justice.</p>
+        <div class="project-tags">
+          <span>R</span><span>Python</span><span>Tableau</span><span>QGIS</span>
+        </div>
+        <button class="project-modal-trigger" data-modal="modal3">View Details</button>
       </div>
 
       <div class="project-card">
-        <img src="infographics/bridge-p6.svg" alt="Bridge Planning">
+        <img src="bridge-planning.png" alt="Bridge Planning">
         <h3>Bridge Planning</h3>
-        <p>Primavera + Power BI for Brăila Bridge</p>
-        <button class="project-modal-trigger" data-modal="modal4">More Info</button>
+        <p>Primavera P6 & Power BI for the Brăila Bridge.</p>
+        <div class="project-tags">
+          <span>Primavera P6</span><span>Power BI</span>
+        </div>
+        <button class="project-modal-trigger" data-modal="modal4">View Details</button>
       </div>
 
       <div class="project-card">
-        <img src="infographics/dam-construction.svg" alt="Dam Spillway">
-        <h3>Dam Spillway</h3>
-        <p>AutoCAD execution, Excel cost tracking</p>
-        <button class="project-modal-trigger" data-modal="modal5">More Info</button>
+        <img src="dam-spillway.png" alt="Dam Spillway">
+        <h3>Dam Spillway Construction</h3>
+        <p>AutoCAD execution and Excel cost tracking.</p>
+        <div class="project-tags">
+          <span>AutoCAD</span><span>Excel</span>
+        </div>
+        <button class="project-modal-trigger" data-modal="modal5">View Details</button>
       </div>
 
     </div>
   </section>
 
-  <!-- 🔍 PROJECT MODALS -->
-  <div id="modal1" class="modal"><div class="modal-content"><h3>Inventory Automation</h3><p>Built real-time inventory tracking using Python, SQL, and Odoo ERP. Automated reorder logic, reduced shrinkage, and improved procurement cycles.</p></div></div>
+  <section id="gallery" class="glass-panel" data-aos="fade-up">
+    <h2>Photo Gallery</h2>
+    <div class="gallery-grid">
+      <img src="cmu-suit.jpg" alt="CMU Suit" class="gallery-img" data-caption="CMU Graduation Suit">
+      <img src="graduation.jpg" alt="Graduation" class="gallery-img" data-caption="Graduation Day">
+      <img src="dam-site.jpg" alt="Dam Site" class="gallery-img" data-caption="At the Dam Construction Site">
+      <img src="paris.jpg" alt="Paris" class="gallery-img" data-caption="In Paris">
+    </div>
+  </section>
 
-  <div id="modal2" class="modal"><div class="modal-content"><h3>Cybersecurity Testing</h3><p>Implemented Postman automation, API testing, device security, and vulnerability scanning for platforms like Infoblox and Microsoft Dynamics.</p></div></div>
+  <div id="modal1" class="modal"><div class="modal-content"><span class="close-btn" data-modal="modal1">&times;</span><h3>Inventory Automation</h3><p>Built real-time inventory tracking using Python, SQL, and Odoo ERP. Automated reorder logic, reduced shrinkage, and improved procurement cycles.</p></div></div>
+  <div id="modal2" class="modal"><div class="modal-content"><span class="close-btn" data-modal="modal2">&times;</span><h3>Cybersecurity Testing</h3><p>Implemented Postman automation, API testing, device security, and vulnerability scanning for platforms like Infoblox and Microsoft Dynamics.</p></div></div>
+  <div id="modal3" class="modal"><div class="modal-content"><span class="close-btn" data-modal="modal3">&times;</span><h3>Climate Data Analytics</h3><p>Analyzed climate justice impact using R, Python, Tableau, and QGIS. Created visualizations for regional policy-making at CMU.</p></div></div>
+  <div id="modal4" class="modal"><div class="modal-content"><span class="close-btn" data-modal="modal4">&times;</span><h3>Bridge Planning</h3><p>Used Primavera P6 and Power BI to plan, monitor, and visualize project performance for the Brăila Bridge in Romania.</p></div></div>
+  <div id="modal5" class="modal"><div class="modal-content"><span class="close-btn" data-modal="modal5">&times;</span><h3>Dam Spillway Construction</h3><p>Executed slope concreting using AutoCAD, managed procurement, and optimized cost analysis through Excel dashboards at SEW Infra.</p></div></div>
 
-  <div id="modal3" class="modal"><div class="modal-content"><h3>Climate Data Analytics</h3><p>Analyzed climate justice impact using R, Python, Tableau, and QGIS. Created visualizations for regional policy-making at CMU.</p></div></div>
+  <div id="photo-modal" class="modal">
+    <div class="modal-content" id="modal-img-wrapper">
+      <span class="close-btn" data-modal="photo-modal">&times;</span>
+      <img id="modal-img" src="" alt="" />
+      <p id="modal-caption"></p>
+    </div>
+  </div>
 
-  <div id="modal4" class="modal"><div class="modal-content"><h3>Bridge Planning</h3><p>Used Primavera P6 and Power BI to plan, monitor, and visualize project performance for the Brăila Bridge in Romania.</p></div></div>
-
-  <div id="modal5" class="modal"><div class="modal-content"><h3>Dam Spillway Construction</h3><p>Executed slope concreting using AutoCAD, managed procurement, and optimized cost analysis through Excel dashboards at SEW Infra.</p></div></div>
-  <!-- 🔄 AOS Animation Initialization -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="dark-mode-toggle.js"></script>
+  
   <script>
-    AOS.init({ once: true });
-  </script>
+    // Initialize AOS (Animate on Scroll)
+    AOS.init({ once: true, duration: 800 });
 
-  <!-- ✨ TYPED.JS Word Cloud -->
-  <script>
+    // Initialize Typed.js for the dynamic hero text
     new Typed('#typed', {
       strings: [
         'Project Manager',
         'Civil Engineer',
         'Data Analyst',
         'Cybersecurity Intern',
-        'Application Developer',
         'Python & SQL Expert',
-        'Odoo ERP Specialist',
-        'Power BI & Tableau',
-        'Primavera & AutoCAD',
-        'Global Experience 🇮🇳 🇮🇹 🇵🇹 🇺🇸'
+        'Odoo ERP Specialist'
       ],
       typeSpeed: 50,
       backSpeed: 25,
-      backDelay: 1000,
+      backDelay: 1500,
       loop: true
     });
-  </script>
 
-  <!-- 📄 Resume Modal Logic -->
-  <script>
+    // --- Modal Handling Logic ---
     document.addEventListener('DOMContentLoaded', () => {
-      const resumeBtn = document.getElementById('resume-btn');
-      const resumeModal = document.getElementById('resume-modal');
+      // Function to open a modal
+      const openModal = (modal) => {
+        if (modal) modal.style.display = 'flex';
+      };
 
-      if (resumeBtn && resumeModal) {
-        resumeBtn.addEventListener('click', (e) => {
-          e.preventDefault();
-          resumeModal.style.display = 'flex';
-        });
+      // Function to close a modal
+      const closeModal = (modal) => {
+        if (modal) modal.style.display = 'none';
+      };
 
-        window.addEventListener('click', (e) => {
-          if (e.target === resumeModal) {
-            resumeModal.style.display = 'none';
-          }
-        });
-      }
-
-      // Project Modals
+      // Project Modal Triggers
       document.querySelectorAll('.project-modal-trigger').forEach(button => {
-        const modalId = button.getAttribute('data-modal');
-        const modal = document.getElementById(modalId);
-        if (modal) {
-          button.addEventListener('click', () => modal.style.display = 'flex');
-          modal.addEventListener('click', e => {
-            if (e.target === modal) modal.style.display = 'none';
-          });
+        const modal = document.getElementById(button.getAttribute('data-modal'));
+        button.addEventListener('click', () => openModal(modal));
+      });
+      
+      // Gallery Image Triggers
+      const photoModal = document.getElementById('photo-modal');
+      const modalImg = document.getElementById('modal-img');
+      const modalCaption = document.getElementById('modal-caption');
+      
+      document.querySelectorAll('.gallery-img').forEach(img => {
+        img.addEventListener('click', () => {
+          modalImg.src = img.src;
+          modalCaption.textContent = img.getAttribute('data-caption');
+          openModal(photoModal);
+        });
+      });
+
+      // Close button and background click listeners for ALL modals
+      document.querySelectorAll('.modal').forEach(modal => {
+        // Close when clicking on the modal background
+        modal.addEventListener('click', e => {
+          if (e.target === modal) closeModal(modal);
+        });
+        
+        // Find the close button inside the modal and add a listener
+        const closeButton = modal.querySelector('.close-btn');
+        if(closeButton){
+            closeButton.addEventListener('click', () => closeModal(modal));
         }
       });
     });
