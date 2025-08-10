@@ -3,73 +3,60 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SYSTEM_SAI :: Access Profile</title>
+    <title>SYSTEM_SAI :: Global Operations</title>
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="cmu-suit.jpg" />
 </head>
 <body>
-    <main id="game-container" class="terminal-window">
-        <h1 class="main-title">// RECRUITER_QUEST</h1>
-        <section id="dialogue-screen">
-            <div id="npc-area">
-                <img src="cmu-suit.jpg" id="avatar" alt="User Avatar">
-                <div class="dialogue-box">
-                    <p id="dialogue-text">Initializing system...</p>
-                </div>
+    <main id="game-grid">
+        <section id="character-bio" class="terminal-window">
+            <img src="cmu-suit.jpg" id="avatar" alt="User Avatar">
+            <h2 class="bio-name">Sai J. Yalamanchili</h2>
+            <p class="bio-title glitch-text" data-text="Global Operative">Global Operative</p>
+            <div class="bio-stats">
+                <p><strong>Status:</strong> <span id="status-text">Awaiting Directives</span></p>
+                <p><strong>Current Location:</strong> <span id="location-text">Auburn Hills, Michigan, USA</span></p>
             </div>
-            <div id="player-options-container"></div>
+            <div class="bio-contact">
+                <a href="Sai_Resume.pdf" target="_blank" class="glow-btn">Download Dossier</a>
+                <a href="mailto:sai.yalamanchili@example.com" class="glow-btn">Open Secure Comms</a>
+            </div>
         </section>
 
-        <div id="unlocked-content-area">
-            <section id="projects-content" class="hidden-section terminal-window content-window">
-                <h2 class="content-title">// MISSION_LOGS [UNLOCKED]</h2>
-                <div class="quest-grid">
-                    <div class="quest-card">
-                        <h3>Automated Inventory</h3>
-                        <p>Objective: Deployed a real-time inventory tracking system using Python and **Odoo ERP**, reducing inventory shrinkage by 15%.</p>
-                        <div class="quest-tags"><span>Python</span><span>Odoo</span><span>SQL</span></div>
-                    </div>
-                    <div class="quest-card">
-                        <h3>Climate Data Saga</h3>
-                        <p>Objective: Analyzed and visualized climate justice data using R and **Tableau** to inform regional policy-making at CMU.</p>
-                        <div class="quest-tags"><span>R</span><span>Tableau</span><span>QGIS</span></div>
-                    </div>
-                </div>
-            </section>
-            
-            <section id="skills-content" class="hidden-section terminal-window content-window">
-                <h2 class="content-title">// SKILL_MATRIX [UNLOCKED]</h2>
-                <ul class="skill-tree">
-                    <li><span class="skill-node core">Data Analytics</span>
-                        <ul><li><span>Python</span></li><li><span>R</span></li><li><span>Tableau</span></li></ul>
-                    </li>
-                    <li><span class="skill-node core">Project Management</span>
-                        <ul><li><span>**Primavera P6**</span></li><li><span>Agile Methods</span></li></ul>
-                    </li>
-                </ul>
-            </section>
-
-            <section id="contact-content" class="hidden-section terminal-window content-window">
-                <h2 class="content-title">// TREASURE_UNLOCKED</h2>
-                <p>Congratulations, you have acquired all data fragments. The complete profile is assembled.</p>
-                <div class="action-buttons">
-                    <a href="mailto:sai.yalamanchili@example.com" class="glow-btn">Initiate Contact</a>
-                    <a href="Sai_Resume.pdf" target="_blank" class="glow-btn">Download Full Dossier</a>
-                    <a href="https://github.com/Sai-code-glitch" target="_blank" class="glow-btn">Access Source Code</a>
-                </div>
-            </section>
-        </div>
-
-        <div id="challenge-modal" class="challenge-overlay hidden">
-            <div class="challenge-box terminal-window">
-              <h3 id="challenge-title">ACCESS DENIED: CLEARANCE REQUIRED</h3>
-              <p id="challenge-question"></p>
-              <div id="challenge-answers"></div>
-              <p id="challenge-result"></p>
+        <section id="main-terminal" class="terminal-window">
+            <h1 class="main-title">// GLOBAL_INTEL</h1>
+            <div id="world-map-container">
+                <img src="world-map.png" alt="World Map" class="map-image">
+                <div id="usa" class="location" data-location="USA"></div>
+                <div id="italy" class="location" data-location="Italy"></div>
+                <div id="romania" class="location" data-location="Romania"></div>
+                <div id="india" class="location" data-location="India"></div>
             </div>
-        </div>
+            <div id="data-display" class="hidden">
+                <h2 id="intel-title" class="content-title"></h2>
+                <div id="intel-content"></div>
+            </div>
+        </section>
     </main>
+
+    <template id="usa-intel">
+        <div class="intel-card"><h3>OPERATION HQ: Auburn Hills, Michigan</h3><p>Current Operational Zone.</p></div>
+        <div class="intel-card"><h3>TRAINING: Central Michigan University</h3><p>MS, Business Data Analytics (2022-2024)</p></div>
+        <div class="intel-card"><h3>OPERATION: Cloudscale Inc.</h3><p>Cybersecurity Intern (2024)</p></div>
+    </template>
+    <template id="italy-intel">
+        <div class="intel-card"><h3>TRAINING: Politecnico di Milano</h3><p>MS, Built Environment (2017-2019)</p></div>
+        <div class="intel-card"><h3>OPERATION: Pegaso Ingenieria</h3><p>Project Planner (Remote from Italy)</p></div>
+    </template>
+    <template id="romania-intel">
+        <div class="intel-card"><h3>OPERATION: Pegaso Ingenieria</h3><p>Field assignment for the Brăila Bridge project.</p></div>
+    </template>
+    <template id="india-intel">
+        <div class="intel-card"><h3>TRAINING: RVR&JC College</h3><p>BSc, Civil Engineering (2011-2015)</p></div>
+        <div class="intel-card"><h3>OPERATION: SEW Infrastructure</h3><p>Dam Spillway Construction Analyst</p></div>
+    </template>
+
     <script src="game-logic.js"></script>
 </body>
 </html>
