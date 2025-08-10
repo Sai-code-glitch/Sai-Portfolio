@@ -431,4 +431,60 @@ section {
   color: #555 !important;      /* Make secondary info readable but less bold */
   font-weight: 400;
 }
+/* --- Styles for Enhanced Project Cards --- */
+
+/* Container for the tech tags */
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px; /* Space between tags */
+  margin-top: 15px; /* Space above the tags */
+  margin-bottom: 20px; /* Space below the tags */
+}
+
+/* Individual tech tag style */
+.project-tags span {
+  background-color: #4a5568; /* A neutral dark gray */
+  color: #edf2f7; /* Light text color */
+  padding: 5px 12px;
+  border-radius: 15px; /* Creates the "pill" shape */
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+/* Dark mode specific style for tags */
+body.dark-mode .project-tags span {
+    background-color: #2d3748;
+}
+
+.project-card button {
+    width: 100%;
+    margin-top: auto; /* Pushes the button to the bottom of the card */
+}
+
+
+/* --- Styles for Modal Close Button --- */
+.modal-content {
+    position: relative; /* Needed for positioning the close button */
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #aaa;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.close-btn:hover {
+  color: #fff; /* White on hover for dark mode */
+}
+
+body:not(.dark-mode) .close-btn:hover {
+    color: #000; /* Black on hover for light mode */
+}
 
