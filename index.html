@@ -9,30 +9,49 @@
     <link rel="icon" href="cmu-suit.jpg" />
 </head>
 <body>
+    <div id="welcome-modal" class="challenge-overlay">
+        <div class="challenge-box terminal-window">
+            <h3>TRANSMISSION INCOMING...</h3>
+            <p>"Time spent is always appreciated. Thanks for your first click! I hope we can turn these seconds into years of working together."</p>
+            <button id="start-mission-btn" class="glow-btn">Begin Mission</button>
+        </div>
+    </div>
+
     <main id="game-grid">
         <section id="character-bio" class="terminal-window">
             <img src="cmu-suit.jpg" id="avatar" alt="User Avatar">
             <h2 class="bio-name">Sai J. Yalamanchili</h2>
             <p class="bio-title">Global Operative</p>
-            <div class="bio-stats">
-                <p><strong>Status:</strong> <span id="status-text">Awaiting Directives</span></p>
-                <p><strong>Location:</strong> <span id="location-text">System Standby</span></p>
+            
+            <div id="education-panel">
+                <h3 class="panel-title">// Advanced Training</h3>
+                <div class="edu-item">
+                    <h4>M.S. Business Data Analytics</h4>
+                    <p>Central Michigan University, USA</p>
+                </div>
+                <div class="edu-item">
+                    <h4>M.S. Built Environment</h4>
+                    <p>Politecnico di Milano, Italy</p>
+                </div>
             </div>
+
             <div class="bio-contact">
-                <a href="Sai_Resume.pdf" target="_blank" class="glow-btn">Download Dossier</a>
+                <a href="Sai_Resume.pdf" target="_blank" class="glow-btn">Download Full Dossier</a>
                 <a href="mailto:sai.yalamanchili@example.com" class="glow-btn">Open Secure Comms</a>
             </div>
         </section>
 
         <section id="main-terminal" class="terminal-window">
-            <h1 class="main-title">// GLOBAL_INTEL</h1>
+            <div id="dialogue-box">
+                <p id="dialogue-text">System Standby. Please Begin Mission...</p>
+            </div>
             
             <div id="world-map-container">
                 <img src="world-map.png" alt="World Map" class="map-image">
-                <div id="usa" class="location" data-location="USA"></div>
-                <div id="italy" class="location" data-location="Italy"></div>
-                <div id="romania" class="location" data-location="Romania"></div>
-                <div id="india" class="location" data-location="India"></div>
+                <div id="usa" class="location locked" data-location="USA"></div>
+                <div id="italy" class="location locked" data-location="Italy"></div>
+                <div id="romania" class="location locked" data-location="Romania"></div>
+                <div id="india" class="location locked" data-location="India"></div>
             </div>
 
             <div id="data-display" class="hidden">
@@ -43,21 +62,27 @@
     </main>
 
     <template id="usa-intel">
-        <div class="intel-card"><h3>TRAINING: Central Michigan University</h3><p>MS, Business Data Analytics (2022-2024)</p></div>
-        <div class="intel-card"><h3>OPERATION: Cloudscale Inc.</h3><p>Cybersecurity Intern (2024)</p></div>
+        <div class="intel-card">
+            <h3>OPERATION: Cloudscale Inc. (Cybersecurity Intern)</h3>
+            <p>Executed automated API testing and vulnerability scanning for enterprise platforms.</p>
+            <div class="quest-tags"><span>Postman</span><span>API Security</span><span>Microsoft Dynamics</span></div>
+        </div>
     </template>
     <template id="italy-intel">
-        <div class="intel-card"><h3>TRAINING: Politecnico di Milano</h3><p>MS, Built Environment (2017-2019)</p></div>
-        <div class="intel-card"><h3>OPERATION: Pegaso Ingenieria</h3><p>Project Planner (Remote)</p></div>
-    </template>
-    <template id="romania-intel">
-        <div class="intel-card"><h3>OPERATION: Pegaso Ingenieria</h3><p>Field assignment for the Brăila Bridge project.</p></div>
+        <div class="intel-card">
+            <h3>OPERATION: Pegaso Ingenieria (Project Planner)</h3>
+            <p>Utilized Primavera P6 and Power BI to monitor and visualize project performance for the Brăila Bridge.</p>
+            <div class="quest-tags"><span>Primavera P6</span><span>Power BI</span><span>Data Analysis</span></div>
+        </div>
     </template>
     <template id="india-intel">
-        <div class="intel-card"><h3>TRAINING: RVR&JC College</h3><p>BSc, Civil Engineering (2011-2015)</p></div>
-        <div class="intel-card"><h3>OPERATION: SEW Infrastructure</h3><p>Dam Spillway Construction Analyst</p></div>
+        <div class="intel-card">
+            <h3>OPERATION: SEW Infrastructure (Analyst)</h3>
+            <p>Managed procurement and optimized cost analysis for dam spillway construction using AutoCAD and advanced Excel dashboards.</p>
+            <div class="quest-tags"><span>AutoCAD</span><span>Excel</span><span>Cost Analysis</span></div>
+        </div>
     </template>
-
+    
     <script src="game-logic.js"></script>
 </body>
 </html>
