@@ -1,29 +1,66 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const dialogueTextElement = document.getElementById('dialogue-text');
+    const optionsContainer = document.getElementById('player-options-container');
 
-    // Initialize Typed.js for the "Class" text
-    new Typed('#typed-class', {
-      strings: [
-        'Data Mage',
-        'Project Paladin',
-        'Automation Alchemist',
-        'Cybersecurity Sentinel'
-      ],
-      typeSpeed: 70,
-      backSpeed: 40,
-      backDelay: 2000,
-      loop: true
-    });
-    
-    // --- Modal Handling Logic ---
-    const modalTriggers = document.querySelectorAll('.modal-trigger');
-    
-    modalTriggers.forEach(trigger => {
-        trigger.addEventListener('click', () => {
-            const modalId = trigger.getAttribute('data-modal');
-            const modal = document.getElementById(modalId);
-            if (modal) {
-                modal.showModal();
-            }
+    // This object defines the entire conversation and the tasks.
+    const dialogueTree = {
+        start: {
+            text: "Welcome, brave recruiter! I am Sai, your guide. To proceed, please accept a task.",
+            options: [
+                { text: "Task: Analyze Skills", action: 'show', target: 'skills-content' },
+                { text: "Task: Review Quest Log", action: 'show', target: 'projects-content' },
+                { text: "Task: Open Communications", action: 'show', target: 'contact-content' },
+            ]
+        }
+    };
+
+    // This function handles showing and hiding the content sections.
+    function showSection(sectionId) {
+        // Hide all unlocked sections first
+        document.querySelectorAll('.unlocked-section').forEach(section => {
+            section.classList.remove('unlocked-section');
+            section.classList.add('hidden-section');
         });
-    });
+
+        // Show the target section
+        const targetSection = document.getElementById(sectionId);
+        if (targetSection) {
+            targetSection.classList.remove('hidden-section');
+            targetSection.classList.add('unlocked-section');
+        }
+    }
+
+    // This function updates the dialogue box and the player's options.
+    function renderDialogueNode(node) {
+        // Typing effect for dialogue
+        let i = 0;
+        dialogueTextElement.innerHTML = '';
+        function typeWriter() {
+            if (i < node.text.length) {
+                dialogueTextElement.innerHTML += node.text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 30); // Adjust typing speed here
+            }
+        }
+        typeWriter();
+
+        optionsContainer.innerHTML = ''; // Clear previous options
+
+        node.options.forEach(option => {
+            const button = document.createElement('button');
+            button.className = 'nes-btn';
+            button.innerText = option.text;
+            
+            button.addEventListener('click', () => {
+                if (option.action === 'show') {
+                    showSection(option.target);
+                }
+            });
+
+            optionsContainer.appendChild(button);
+        });
+    }
+
+    // --- Start The Game ---
+    renderDialogueNode(dialogueTree.start);
 });
