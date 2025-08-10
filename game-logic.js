@@ -1,4 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // --- Sound Asset Loading ---
+    // IMPORTANT: Replace these filenames with your actual sound files.
+    const clickSound = new Audio('click.mp3');
+    const successSound = new Audio('success.mp3');
+    const errorSound = new Audio('error.mp3');
+    
+    // --- DOM Element Selection ---
     const dialogueTextElement = document.getElementById('dialogue-text');
     const optionsContainer = document.getElementById('player-options-container');
     const challengeModal = document.getElementById('challenge-modal');
@@ -6,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const challengeAnswers = document.getElementById('challenge-answers');
     const challengeResult = document.getElementById('challenge-result');
 
+    // --- Game Content Definitions ---
     const dialogueTree = {
         start: {
             text: "SYSTEM BOOT... Welcome, user. My prime directive is to present the profile of Sai Yalamanchili. Please select a data packet to access.",
@@ -31,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    // --- Core Game Functions ---
     function showSection(sectionId) {
         document.querySelectorAll('.content-window').forEach(section => {
             if (section.id !== sectionId) {
@@ -38,7 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 section.classList.remove('unlocked-section');
             }
         });
-
         const target = document.getElementById(sectionId);
         if (target) {
             target.classList.remove('hidden-section');
@@ -58,7 +66,9 @@ document.addEventListener('DOMContentLoaded', () => {
             button.className = 'glow-btn';
             button.innerText = answer.text;
             button.onclick = () => {
+                clickSound.play();
                 if (answer.correct) {
+                    successSound.play();
                     challengeResult.innerText = challenge.success;
                     challengeResult.style.color = 'var(--primary-glow)';
                     setTimeout(() => {
@@ -66,6 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         showSection(challenge.target);
                     }, 1500);
                 } else {
+                    errorSound.play();
                     challengeResult.innerText = challenge.failure;
                     challengeResult.style.color = 'var(--secondary-glow)';
                 }
@@ -82,6 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
             button.className = 'glow-btn';
             button.innerText = option.text;
             button.addEventListener('click', () => {
+                clickSound.play();
                 if (option.action === 'show') {
                     showSection(option.target);
                 } else if (option.action === 'challenge') {
@@ -92,5 +104,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- Start The Game ---
     renderDialogueNode(dialogueTree.start);
 });
