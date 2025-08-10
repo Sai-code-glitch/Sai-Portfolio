@@ -1,49 +1,94 @@
 document.addEventListener('DOMContentLoaded', () => {
     // --- Element Selection ---
-    const locationHotspots = document.querySelectorAll('.location');
-    const statusText = document.getElementById('status-text');
-    const locationText = document.getElementById('location-text');
+    const welcomeModal = document.getElementById('welcome-modal');
+    const startMissionBtn = document.getElementById('start-mission-btn');
+    const dialogueText = document.getElementById('dialogue-text');
     const dataDisplay = document.getElementById('data-display');
     const intelTitle = document.getElementById('intel-title');
     const intelContent = document.getElementById('intel-content');
+    const locations = document.querySelectorAll('.location');
 
-    // --- Event Listener for all Hotspots ---
-    locationHotspots.forEach(hotspot => {
-        hotspot.addEventListener('click', () => {
-            const locationId = hotspot.id;
-            const locationName = hotspot.getAttribute('data-location');
-            const intelTemplate = document.getElementById(`${locationId}-intel`);
+    // --- Game State & Content ---
+    const missionOrder = ['usa', 'italy', 'india'];
+    let currentMissionIndex = 0;
+    
+    const missionDirectives = {
+        'usa': "Directive Received: Access US Operations Intel.",
+        'italy': "US Intel Acquired. New Directive: Access European Operations.",
+        'india': "European Intel Acquired. Final Directive: Access Asian Operations.",
+        'complete': "All Intel Acquired. Profile Assembly Complete. System Standing By."
+    };
 
-            // Update the status panel on the left
-            statusText.textContent = "Analyzing Data...";
-            locationText.textContent = locationName;
-
-            // De-activate all other hotspots and activate the current one
-            locationHotspots.forEach(p => p.classList.remove('active'));
-            hotspot.classList.add('active');
-            
-            // **-- THE FIX IS HERE --**
-            if (intelTemplate) {
-                // Update the title of the data display
-                intelTitle.textContent = `// INTEL_FEED: ${locationName.toUpperCase()}`;
-                
-                // 1. Properly clone the content from the <template>
-                const contentToDisplay = intelTemplate.content.cloneNode(true);
-                
-                // 2. Clear any previous content
-                intelContent.innerHTML = ''; 
-                
-                // 3. Append the new, complete content
-                intelContent.appendChild(contentToDisplay);
-                
-                // 4. Show the data display panel
-                dataDisplay.classList.remove('hidden');
+    // --- Game Functions ---
+    const typeWriter = (element, text) => {
+        let i = 0;
+        element.innerHTML = '';
+        const typing = () => {
+            if (i < text.length) {
+                element.innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typing, 25);
             }
+        };
+        typing();
+    };
 
-            // Reset the status text after a short delay
-            setTimeout(() => {
-                statusText.textContent = "Awaiting Directives";
-            }, 1000);
+    const updateMissionTargets = () => {
+        const currentMissionId = missionOrder[currentMissionIndex];
+        locations.forEach(loc => {
+            loc.classList.remove('active-mission');
+            if (loc.id === currentMissionId) {
+                loc.classList.add('active-mission');
+            }
+        });
+    };
+
+    const advanceMission = () => {
+        const completedMissionId = missionOrder[currentMissionIndex];
+        const completedLocation = document.getElementById(completedMissionId);
+        if (completedLocation) {
+            completedLocation.classList.remove('active-mission');
+            completedLocation.classList.add('completed');
+        }
+
+        currentMissionIndex++;
+        
+        if (currentMissionIndex < missionOrder.length) {
+            const nextMissionId = missionOrder[currentMissionIndex];
+            typeWriter(dialogueText, missionDirectives[nextMissionId]);
+            updateMissionTargets();
+        } else {
+            typeWriter(dialogueText, missionDirectives['complete']);
+            dataDisplay.classList.add('hidden'); // Optionally hide intel after final mission
+        }
+    };
+
+    // --- Event Listeners ---
+    locations.forEach(location => {
+        location.addEventListener('click', () => {
+            const missionId = missionOrder[currentMissionIndex];
+            // Only allow clicking on the active mission target
+            if (location.id === missionId) {
+                const locationName = location.getAttribute('data-location');
+                const intelTemplate = document.getElementById(`${location.id}-intel`);
+                
+                if (intelTemplate) {
+                    intelTitle.textContent = `// INTEL_FEED: ${locationName.toUpperCase()}`;
+                    intelContent.innerHTML = intelTemplate.innerHTML;
+                    dataDisplay.classList.remove('hidden');
+                }
+                advanceMission();
+            }
         });
     });
+
+    startMissionBtn.addEventListener('click', () => {
+        welcomeModal.style.display = 'none';
+        // Start the first mission
+        typeWriter(dialogueText, missionDirectives[missionOrder[0]]);
+        updateMissionTargets();
+    });
+
+    // --- Initial State ---
+    // Game is started via the welcome modal button.
 });
