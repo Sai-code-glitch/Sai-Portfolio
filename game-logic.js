@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const dialogueText = document.getElementById('dialogue-text');
     const challengeModal = document.getElementById('challenge-modal');
     const intelDisplay = document.getElementById('intel-display');
+    const intelTitle = document.getElementById('intel-title');
+    const intelContent = document.getElementById('intel-content');
     const codeSamples = document.getElementById('code-samples');
     const locations = document.querySelectorAll('.location');
 
@@ -23,33 +25,30 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // --- Game Functions ---
-    const typeWriter = (element, text) => { /* ... (same as before) ... */ };
+    const showIntelForLocation = (locationId) => {
+        const intelTemplate = document.getElementById(`${locationId}-intel`);
+        const locationName = document.getElementById(locationId).dataset.location;
 
-    const showChallenge = (locationId) => {
-        const challenge = challenges[locationId];
-        if (!challenge) return;
-
-        // Populate and show the modal
-        document.getElementById('challenge-title').innerText = challenge.title;
-        document.getElementById('challenge-question').innerText = challenge.question;
-        const answersContainer = document.getElementById('challenge-answers');
-        answersContainer.innerHTML = '';
-        challenge.answers.forEach(ans => {
-            const btn = document.createElement('button');
-            btn.className = 'glow-btn';
-            btn.innerText = ans.text;
-            btn.onclick = () => handleAnswer(ans.correct, challenge);
-            answersContainer.appendChild(btn);
-        });
-        challengeModal.classList.remove('hidden');
+        if (intelTemplate) {
+            const content = intelTemplate.content.cloneNode(true);
+            intelTitle.textContent = `// INTEL_FEED: ${locationName.toUpperCase()}`;
+            intelContent.innerHTML = '';
+            intelContent.appendChild(content);
+            intelDisplay.classList.remove('hidden');
+            codeSamples.classList.add('hidden');
+        }
     };
 
-    const handleAnswer = (isCorrect, challenge) => {
+    const handleAnswer = (isCorrect, challenge, locationId) => {
         const resultEl = document.getElementById('challenge-result');
         if (isCorrect) {
             resultEl.innerText = "ACCESS GRANTED. " + challenge.success;
             setTimeout(() => {
                 challengeModal.classList.add('hidden');
+                
+                // *** THE FIX: Show intel for the location you just unlocked ***
+                showIntelForLocation(locationId);
+                
                 gameState.stage = challenge.nextStage;
                 renderGameState();
             }, 1500);
@@ -58,19 +57,40 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    const showChallenge = (locationId) => {
+        const challenge = challenges[locationId];
+        if (!challenge) return;
+        document.getElementById('challenge-title').innerText = challenge.title;
+        document.getElementById('challenge-question').innerText = challenge.question;
+        const answersContainer = document.getElementById('challenge-answers');
+        answersContainer.innerHTML = '';
+        challenge.answers.forEach(ans => {
+            const btn = document.createElement('button');
+            btn.className = 'glow-btn';
+            btn.innerText = ans.text;
+            btn.onclick = () => handleAnswer(ans.correct, challenge, locationId);
+            answersContainer.appendChild(btn);
+        });
+        challengeModal.classList.remove('hidden');
+    };
+
     const renderGameState = () => {
         typeWriter(dialogueText, dialogue[gameState.stage]);
         
-        if (gameState.stage === 'start') {
-            document.getElementById('usa').classList.add('active-mission');
-        } else if (gameState.stage === 'unlockEurope') {
-            document.getElementById('usa').classList.replace('active-mission', 'completed');
-            document.getElementById('italy').classList.add('active-mission');
-        } else if (gameState.stage === 'unlockIndia') {
-            document.getElementById('italy').classList.replace('active-mission', 'completed');
-            document.getElementById('india').classList.add('active-mission');
-        } else if (gameState.stage === 'complete') {
-            document.getElementById('india').classList.replace('active-mission', 'completed');
+        const missionOrder = ['usa', 'italy', 'india'];
+        const currentMissionId = missionOrder.find(id => dialogue[gameState.stage].includes(challenges[id]?.success.split('...')[1] || dialogue.start.includes('US intel')));
+
+        locations.forEach(loc => {
+            loc.classList.remove('active-mission');
+            if (loc.id === currentMissionId) {
+                loc.classList.add('active-mission');
+            }
+        });
+
+        if (gameState.stage === 'unlockEurope') document.getElementById('usa').classList.replace('locked', 'completed');
+        if (gameState.stage === 'unlockIndia') document.getElementById('italy').classList.replace('locked', 'completed');
+        if (gameState.stage === 'complete') {
+            document.getElementById('india').classList.replace('locked', 'completed');
             intelDisplay.classList.add('hidden');
             codeSamples.classList.remove('hidden');
         }
@@ -82,10 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (loc.classList.contains('active-mission')) {
                 showChallenge(loc.id);
             } else if (loc.classList.contains('completed')) {
-                const intelTemplate = document.getElementById(`${loc.id}-intel`);
-                document.getElementById('intel-title').innerText = `// REPLAY_INTEL: ${loc.dataset.location.toUpperCase()}`;
-                document.getElementById('intel-content').innerHTML = intelTemplate.innerHTML;
-                intelDisplay.classList.remove('hidden');
+                showIntelForLocation(loc.id);
             }
         });
     });
@@ -94,4 +111,17 @@ document.addEventListener('DOMContentLoaded', () => {
         welcomeModal.style.display = 'none';
         renderGameState();
     });
+
+    const typeWriter = (element, text) => {
+        let i = 0;
+        element.innerHTML = '';
+        const typing = () => {
+            if (i < text.length) {
+                element.innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typing, 25);
+            }
+        };
+        typing();
+    };
 });
