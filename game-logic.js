@@ -73,8 +73,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 const intelTemplate = document.getElementById(`${location.id}-intel`);
                 
                 if (intelTemplate) {
+                    const content = intelTemplate.content.cloneNode(true);
                     intelTitle.textContent = `// INTEL_FEED: ${locationName.toUpperCase()}`;
-                    intelContent.innerHTML = intelTemplate.innerHTML;
+                    intelContent.innerHTML = '';
+                    intelContent.appendChild(content);
                     dataDisplay.classList.remove('hidden');
                 }
                 advanceMission();
@@ -88,7 +90,4 @@ document.addEventListener('DOMContentLoaded', () => {
         typeWriter(dialogueText, missionDirectives[missionOrder[0]]);
         updateMissionTargets();
     });
-
-    // --- Initial State ---
-    // Game is started via the welcome modal button.
 });
