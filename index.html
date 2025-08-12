@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SYSTEM_SAI :: Global Data Analyst</title>
+    <title>SYSTEM_SAI :: Data Infrastructure</title>
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="cmu-suit.jpg" />
@@ -12,8 +12,8 @@
     <div id="welcome-modal" class="modal-overlay">
         <div class="modal-box terminal-window">
             <h3>TRANSMISSION INCOMING...</h3>
-            <p>"As a Global Operative with experience across three continents, I bring a unique blend of data analytics, project management, and automation skills to the table. I specialize in turning complex data into actionable insights and optimizing processes to drive efficiency and reduce costs."</p>
-            <button id="start-mission-btn" class="glow-btn">Begin Briefing</button>
+            <p>"I architect data-centric solutions that bridge the gap between complex physical operations and scalable software infrastructure. With experience in building data pipelines, automating validation, and managing systems across international environments, I bring a proven ability to turn petabytes of raw data into reliable fuel for advanced models."</p>
+            <button id="start-mission-btn" class="glow-btn">Access Data Core</button>
         </div>
     </div>
 
@@ -31,12 +31,12 @@
                 <img src="cmu-suit.jpg" id="avatar-large" alt="User Avatar">
             </div>
             <h2 class="bio-name">Sai J. Yalamanchili</h2>
-            <p class="bio-title">Remote Data Analyst</p>
+            <p class="bio-title">Data & Infrastructure Engineer</p>
             
             <div class="bio-section">
-                <h3 class="panel-title">// Remote Proficiencies</h3>
+                <h3 class="panel-title">// Technical Proficiencies</h3>
                 <div class="skills-list">
-                    <span>Slack</span><span>Jira</span><span>Asana</span><span>Async Comms</span>
+                    <span>Python</span><span>SQL</span><span>Go (Learning)</span><span>Large-Scale Data</span><span>ETL</span><span>Automation</span>
                 </div>
             </div>
             
@@ -55,13 +55,13 @@
         </section>
 
         <section id="main-terminal" class="terminal-window">
-            <div id="dialogue-box"><p id="dialogue-text">System Standby. Please Begin Briefing...</p></div>
+            <h1 class="main-title">// DATA_INFRASTRUCTURE_CORE</h1>
+            <div id="dialogue-box"><p id="dialogue-text">System Standby. Please select a data cluster to analyze.</p></div>
             <div id="world-map-container">
                 <img src="world-map.png" alt="World Map" class="map-image">
-                <div id="usa" class="location" data-location="USA"></div>
-                <div id="italy" class="location" data-location="Italy"></div>
-                <div id="romania" class="location" data-location="Romania"></div>
-                <div id="india" class="location" data-location="India"></div>
+                <div id="ingestion" class="location"></div>
+                <div id="validation" class="location"></div>
+                <div id="rd" class="location"></div>
             </div>
             <div id="data-display" class="hidden">
                 <h2 id="intel-title" class="content-title"></h2>
@@ -70,31 +70,64 @@
         </section>
     </main>
 
-    <template id="usa-intel">
+    <template id="ingestion-intel">
         <div class="intel-card">
-            <h3>OPERATION: Cloudscale Inc. (Cybersecurity Intern)</h3>
-            <p>Executed automated API testing and vulnerability scanning for enterprise platforms.</p>
-            <div class="quest-tags"><span>Postman</span><span>API Security</span><span>Python</span></div>
-            <button class="glow-btn project-trigger" data-project-id="usa-projects">View Major Projects</button>
+            <h3>PROJECT: Real-Time Data Ingestion & Processing Pipeline</h3>
+            <p>Architected a data pipeline to ingest and process real-time multimodal data (transactional records, user actions) for an inventory management system.</p>
+            <p class="question">Key Achievement:</p>
+            <p>Automated data validation and management, creating a scalable system to handle thousands of daily data points and reducing data shrinkage by 15%.</p>
+            <p class="question">Infrastructure & Tools:</p>
+            <div class="quest-tags"><span>Data Pipelines</span><span>ETL</span><span>Python</span><span>SQL</span><span>Odoo ERP</span></div>
+            <button class="glow-btn project-trigger">View Architecture</button>
             <div class="project-details hidden">
-                <h4>Automated Testing Suite</h4>
-                <p>- Developed a script that reduced manual testing time by 40%.</p>
-                <h4>Vulnerability Scanning Protocol</h4>
-                <p>- Implemented a new scanning protocol for Microsoft Dynamics.</p>
+                <h4>System Architecture</h4>
+                <p>- Designed a fault-tolerant ingestion endpoint for fleet-wide data logging.</p>
+                <p>- Implemented a versioning system for datasets to facilitate safe experimentation.</p>
             </div>
         </div>
     </template>
-    <template id="italy-intel">
+    <template id="validation-intel">
         <div class="intel-card">
-            <h3>OPERATION: Pegaso Ingenieria (Project Planner)</h3>
-            <p>Utilized Primavera P6 and Power BI to monitor and visualize project performance for the Brăila Bridge.</p>
-            <div class="quest-tags"><span>Primavera P6</span><span>Power BI</span><span>Data Analysis</span></div>
-            <button class="glow-btn project-trigger" data-project-id="italy-projects">View Major Projects</button>
+            <h3>PROJECT: Automated Infrastructure Testing & Validation</h3>
+            <p>Developed and executed automated testing suites for enterprise-level network infrastructure, ensuring system integrity and fault tolerance.</p>
+            <p class="question">Key Responsibility:</p>
+            <p>Used Postman for rigorous API testing and validation, identifying potential vulnerabilities and ensuring robust, secure performance.</p>
+            <p class="question">Infrastructure & Tools:</p>
+            <div class="quest-tags"><span>Automation</span><span>API Security</span><span>Fault Tolerance</span><span>Postman</span></div>
+        </div>
+    </template>
+    <template id="rd-intel">
+        <div class="intel-card">
+            <h3>R&D: Multimodal Dataloader for Image & Action Pairs</h3>
+            <p>Developed a Python-based dataloader to prepare real-world, multimodal data for large model training.</p>
+            <p class="question">Core Functionality:</p>
+            <p>The script efficiently preprocesses batches of video frames and corresponding action data (e.g., steering angle), tokenizes actions, and yields tensors ready for a training pipeline. This demonstrates a core competency required for training physical intelligence models.</p>
+            <p class="question">Infrastructure & Tools:</p>
+            <div class="quest-tags"><span>Python</span><span>PyTorch/TensorFlow</span><span>Data Preprocessing</span><span>Dataloaders</span></div>
+            <button class="glow-btn project-trigger">View Sample Code</button>
             <div class="project-details hidden">
-                <h4>Performance Dashboards</h4>
-                <p>- Created Power BI dashboards providing real-time insights to stakeholders.</p>
-                <h4>Timeline Management</h4>
-                <p>- Managed resource allocation and project timelines, ensuring on-time delivery.</p>
+                <h4>Sample Python Dataloader</h4>
+                <pre><code>
+    import torch
+    from torch.utils.data import Dataset
+
+    class FleetDataset(Dataset):
+        def __init__(self, data_paths, transform=None):
+            self.data_paths = data_paths
+            self.transform = transform
+
+        def __len__(self):
+            return len(self.data_paths)
+
+        def __getitem__(self, idx):
+            # Load video frames and action data
+            # ...
+            # Apply transformations
+            if self.transform:
+                frames = self.transform(frames)
+            
+            return frames, action_tensor
+                </code></pre>
             </div>
         </div>
     </template>
